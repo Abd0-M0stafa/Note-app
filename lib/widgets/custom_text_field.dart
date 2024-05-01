@@ -27,10 +27,10 @@ class CustomTextField extends StatelessWidget {
           return null;
         }
       },
-      cursorColor: const Color.fromARGB(255, 28, 228, 167),
+      cursorColor: Color.fromARGB(255, 255, 255, 255),
       controller: controller,
       style: const TextStyle(
-        color: Color.fromARGB(255, 28, 228, 167),
+        color: Color.fromARGB(255, 255, 255, 255),
       ),
       onChanged: onChanged,
       onSaved: onSaved,
@@ -39,14 +39,14 @@ class CustomTextField extends StatelessWidget {
         labelStyle: const TextStyle(color: Color.fromARGB(255, 197, 192, 192)),
         suffixIcon: suffixIcon,
         hintText: text,
-        hintStyle: const TextStyle(color: Color.fromARGB(255, 28, 228, 167)),
+        hintStyle: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25),
             borderSide: const BorderSide(color: Colors.white)),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(
-            color: Color.fromARGB(255, 28, 228, 167),
+            color: Color.fromARGB(255, 255, 255, 255),
           ),
         ),
       ),

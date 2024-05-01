@@ -4,7 +4,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:note_app/cubits/note/cubit/note_cubit.dart';
 import 'package:note_app/models/note_model.dart';
 import 'package:note_app/simple_bloc_observer.dart';
-import 'package:note_app/views/notes_view.dart';
+import 'package:note_app/views/splash/presentation/views/splash_view.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -25,7 +25,7 @@ class NoteAPP extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark(),
-        home: const NotesView(),
+        home: const SplashView(),
       ),
     );
   }

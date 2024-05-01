@@ -23,23 +23,7 @@ class _EditNoteViewState extends State<EditNoteView> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text('Edit Mood'),
-        actions: [
-          CustomIconButton(
-            onPressed: () {
-              widget.note.title = title ?? widget.note.title;
-              widget.note.subTitle = content ?? widget.note.subTitle;
-              widget.note.save();
-              BlocProvider.of<NoteCubit>(context).fetchAllNotes();
-              Navigator.pop(context);
-              customSnakeBar(
-                context,
-                text: 'Note updated successfully',
-                color: Colors.green,
-              );
-            },
-            icon: Icons.check,
-          ),
-        ],
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -58,12 +42,48 @@ class _EditNoteViewState extends State<EditNoteView> {
               height: 20,
             ),
             CustomTextField(
-              lable: 'Note subtilte',
+              lable: 'Note description',
               onChanged: (value) {
                 content = value;
               },
               text: widget.note.subTitle,
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                CustomIconButton(
+                  color: Colors.red,
+                  onPressed: () {
+                    Navigator.pop(context);
+                    customSnakeBar(
+                      context,
+                      text: 'Edit cancled',
+                      color: Colors.red,
+                    );
+                  },
+                  icon: Icons.cancel_outlined,
+                ),
+                CustomIconButton(
+                  color: Colors.green,
+                  onPressed: () {
+                    widget.note.title = title ?? widget.note.title;
+                    widget.note.subTitle = content ?? widget.note.subTitle;
+                    widget.note.save();
+                    BlocProvider.of<NoteCubit>(context).fetchAllNotes();
+                    Navigator.pop(context);
+                    customSnakeBar(
+                      context,
+                      text: 'Updated successfully',
+                      color: Colors.green,
+                    );
+                  },
+                  icon: Icons.check_rounded,
+                ),
+              ],
+            )
           ],
         ),
       ),
